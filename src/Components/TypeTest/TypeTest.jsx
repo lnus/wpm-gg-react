@@ -1,16 +1,26 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useContext } from 'react';
 import randomWords from 'random-words';
+import { GameStateContext } from './GameStateContext';
 import './TypeTest.css';
 
 const TypeTest = () => {
-  const [targetWords, setTargetWords] = useState(
-    randomWords({ exactly: 10, maxLength: 7 })
-  );
-  const [completedWords, setCompletedWords] = useState([]);
-  const [currentTarget, setCurrentTarget] = useState(targetWords[0]);
-  const [currentUserInput, setCurrentUserInput] = useState('');
   const [textWidth, setTextWidth] = useState(0);
-  const [currentWordCorrect, setCurrentWordCorrect] = useState(true);
+
+  const {
+    targetWords,
+    setTargetWords,
+    completedWords,
+    setCompletedWords,
+    currentTarget,
+    setCurrentTarget,
+    currentUserInput,
+    setCurrentUserInput,
+    currentWordCorrect,
+    setCurrentWordCorrect,
+    timerSignalStart,
+    setTimerSignalStart,
+  } = useContext(GameStateContext);
+
   const inputRef = useRef();
 
   const completedWordRef = useCallback((node) => {
@@ -129,6 +139,7 @@ const TypeTest = () => {
               isCurrentWordCorrect(e.currentTarget.value);
             }}
             onKeyPress={(e) => {
+              if (!timerSignalStart) setTimerSignalStart(true);
               handleSubmit(e);
             }}
           />
