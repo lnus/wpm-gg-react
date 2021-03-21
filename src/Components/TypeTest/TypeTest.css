@@ -8,6 +8,7 @@
   font-size: 3em;
   color: white;
   justify-content: center;
+  font-family: monospace;
 }
 
 .word-container__completed-words {
@@ -48,6 +49,7 @@
 }
 
 .input-field {
+  font-family: monospace;
   background: transparent;
   color: #fff;
   font-size: 3em;

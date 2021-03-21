@@ -1,4 +1,13 @@
 .timer-text {
   color: white;
-  font-size: 2em;
+  font-family: monospace;
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.timer-info-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 50px;
 }

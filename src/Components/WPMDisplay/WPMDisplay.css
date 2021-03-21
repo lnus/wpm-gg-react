@@ -1,4 +1,21 @@
+.wpm-status-wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
 .wpm-status-display {
+  display: flex;
+  /* background-color: #1c1c1c; */
+  padding: 20px;
   color: white;
   font-size: 2em;
+  width: fit-content;
+  height: auto;
+  flex-direction: column;
+  font-family: monospace;
+}
+
+.wpm-status-display__header {
+  font-size: 2.7rem;
 }

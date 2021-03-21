@@ -3,9 +3,7 @@ import './WPMDisplay.css';
 import { GameStateContext } from '../TypeTest/GameStateContext';
 
 const WPMDisplay = () => {
-  const { completedWords, timeElapsed, maxTimer } = useContext(
-    GameStateContext
-  );
+  const { completedWords, timeElapsed } = useContext(GameStateContext);
 
   const [currentWPM, setCurrentWPM] = useState(0);
   const [currentAccuracy, setCurrentAccuracy] = useState(0);
@@ -45,13 +43,14 @@ const WPMDisplay = () => {
   }, [timeElapsed]);
 
   return (
-    <div>
+    <div className="wpm-status-wrapper">
       <div className="wpm-status-display">
+        <div className="wpm-status-display__header">Status:</div>
         <div className="wpm-status-display__wpm">
-          <p>wpm: {currentWPM}</p>
+          WPM: {currentWPM ? currentWPM.toFixed(2) : 0}
         </div>
         <div className="wpm-status-display__accuracy">
-          <p>accuracy {(currentAccuracy * 100).toFixed(2)}%</p>
+          Accuracy {(currentAccuracy * 100).toFixed(2)}%
         </div>
       </div>
     </div>
