@@ -1,12 +1,16 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './WPMDisplay.css';
-import { GameStateContext } from '../TypeTest/GameStateContext';
+import { GameStateContext } from '../GameState/GameStateContext';
 
 const WPMDisplay = () => {
-  const { completedWords, timeElapsed } = useContext(GameStateContext);
-
-  const [currentWPM, setCurrentWPM] = useState(0);
-  const [currentAccuracy, setCurrentAccuracy] = useState(0);
+  const {
+    completedWords,
+    timeElapsed,
+    currentWPM,
+    setCurrentWPM,
+    currentAccuracy,
+    setCurrentAccuracy,
+  } = useContext(GameStateContext);
 
   const calculateWPM = () => {
     let correctWordsArr = completedWords
@@ -45,7 +49,7 @@ const WPMDisplay = () => {
   return (
     <div className="wpm-status-wrapper">
       <div className="wpm-status-display">
-        <div className="wpm-status-display__header">Status:</div>
+        <div className="wpm-status-display__header">Live stats:</div>
         <div className="wpm-status-display__wpm">
           WPM: {currentWPM ? currentWPM.toFixed(2) : 0}
         </div>

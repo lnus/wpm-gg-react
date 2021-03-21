@@ -2,10 +2,10 @@ import './App.css';
 
 import React from 'react';
 import TypeTest from './Components/TypeTest/TypeTest';
-import Demo from './Components/Demo';
 import WPMDisplay from './Components/WPMDisplay/WPMDisplay';
 import Timer from './Components/Timer/Timer';
-import { GameStateProvider } from './Components/TypeTest/GameStateContext';
+import { GameStateProvider } from './Components/GameState/GameStateContext';
+import Endscreen from './Components/Endscreen/Endscreen';
 
 const App = () => {
   return (
@@ -13,14 +13,15 @@ const App = () => {
       <div className="timer-wrapper">
         <Timer />
       </div>
-      <div className="game-wrapper">
+      <div className="typing-game-wrapper">
         <TypeTest />
-        {/* <div className="footer">no content uwu</div> */}
       </div>
       <div className="info-wrapper">
         <WPMDisplay />
       </div>
-      <Demo />
+      <div className="end-screen-wrapper">
+        <Endscreen />
+      </div>
     </GameStateProvider>
   );
 };

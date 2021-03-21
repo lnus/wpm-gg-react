@@ -1,7 +1,15 @@
-import React, { useState, useRef, useCallback, useContext } from 'react';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useContext,
+  useEffect,
+} from 'react';
 import randomWords from 'random-words';
-import { GameStateContext } from './GameStateContext';
+import { GameStateContext } from '../GameState/GameStateContext';
 import './TypeTest.css';
+
+// TODO: General, make it count chars rather than words. Or both. :)
 
 const TypeTest = () => {
   const [textWidth, setTextWidth] = useState(0);
@@ -19,7 +27,13 @@ const TypeTest = () => {
     setCurrentWordCorrect,
     timerSignalStart,
     setTimerSignalStart,
+    resetGame,
   } = useContext(GameStateContext);
+
+  useEffect(() => {
+    inputRef.current.value = '';
+    setCurrentUserInput('');
+  }, [resetGame, setCurrentUserInput]);
 
   const inputRef = useRef();
 

@@ -18,6 +18,16 @@ export const GameStateProvider = (props) => {
   const [maxTimer, setMaxTimer] = useState(60);
   const [timerSignalStart, setTimerSignalStart] = useState(false);
 
+  // WPM States
+  const [currentWPM, setCurrentWPM] = useState(0);
+  const [currentAccuracy, setCurrentAccuracy] = useState(0);
+  const [finalWPM, setFinalWPM] = useState(0);
+  const [finalAccuracy, setFinalAccuracy] = useState(0);
+
+  // Game-over states
+  const [showEndScreen, setShowEndScreen] = useState(false);
+  const [resetGame, setResetGame] = useState(false);
+
   return (
     <GameStateContext.Provider
       value={{
@@ -37,6 +47,18 @@ export const GameStateProvider = (props) => {
         setMaxTimer: setMaxTimer,
         timerSignalStart: timerSignalStart,
         setTimerSignalStart: setTimerSignalStart,
+        showEndScreen: showEndScreen,
+        setShowEndScreen: setShowEndScreen,
+        currentWPM: currentWPM,
+        setCurrentWPM: setCurrentWPM,
+        currentAccuracy: currentAccuracy,
+        setCurrentAccuracy: setCurrentAccuracy,
+        finalWPM: finalWPM,
+        setFinalWPM: setFinalWPM,
+        finalAccuracy: finalAccuracy,
+        setFinalAccuracy: setFinalAccuracy,
+        resetGame: resetGame,
+        setResetGame: setResetGame,
       }}
     >
       {props.children}

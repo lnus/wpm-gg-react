@@ -6,10 +6,9 @@
 
 .wpm-status-display {
   display: flex;
-  /* background-color: #1c1c1c; */
   padding: 20px;
   color: white;
-  font-size: 2em;
+  font-size: 1.5rem;
   width: fit-content;
   height: auto;
   flex-direction: column;
@@ -17,5 +16,5 @@
 }
 
 .wpm-status-display__header {
-  font-size: 2.7rem;
+  font-size: 2rem;
 }
