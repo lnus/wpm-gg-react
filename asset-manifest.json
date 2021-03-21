@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lnus/wpm-gg/static/css/main.8f203a4f.chunk.css",
+    "main.js": "/lnus/wpm-gg/static/js/main.ff8376b0.chunk.js",
+    "main.js.map": "/lnus/wpm-gg/static/js/main.ff8376b0.chunk.js.map",
+    "runtime-main.js": "/lnus/wpm-gg/static/js/runtime-main.d56e3ac6.js",
+    "runtime-main.js.map": "/lnus/wpm-gg/static/js/runtime-main.d56e3ac6.js.map",
+    "static/js/2.01b4c505.chunk.js": "/lnus/wpm-gg/static/js/2.01b4c505.chunk.js",
+    "static/js/2.01b4c505.chunk.js.map": "/lnus/wpm-gg/static/js/2.01b4c505.chunk.js.map",
+    "static/js/3.46f8ab36.chunk.js": "/lnus/wpm-gg/static/js/3.46f8ab36.chunk.js",
+    "static/js/3.46f8ab36.chunk.js.map": "/lnus/wpm-gg/static/js/3.46f8ab36.chunk.js.map",
+    "index.html": "/lnus/wpm-gg/index.html",
+    "static/css/main.8f203a4f.chunk.css.map": "/lnus/wpm-gg/static/css/main.8f203a4f.chunk.css.map",
+    "static/js/2.01b4c505.chunk.js.LICENSE.txt": "/lnus/wpm-gg/static/js/2.01b4c505.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d56e3ac6.js",
+    "static/js/2.01b4c505.chunk.js",
+    "static/css/main.8f203a4f.chunk.css",
+    "static/js/main.ff8376b0.chunk.js"
+  ]
+}
