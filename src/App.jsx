@@ -1,12 +1,13 @@
 import './App.css';
 
 import React from 'react';
-import WordDisplay from './Components/WordDisplay/WordDisplay';
+import TypeTest from './Components/TypeTest/TypeTest';
 
 const App = () => {
   return (
-    <div>
-      <WordDisplay />
+    <div className="game-wrapper">
+      <TypeTest />
+      {/* <div className="footer">no content uwu</div> */}
     </div>
   );
 };
