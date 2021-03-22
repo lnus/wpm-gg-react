@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { MenuBook, Brush } from '@material-ui/icons/';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  toolbarButtons: {
+    marginLeft: 'auto',
+  },
 }));
 
 const MenuBar = () => {
@@ -20,9 +24,18 @@ const MenuBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky" color="primary">
         <Toolbar>
-          <IconButton edge="start"></IconButton>
+          <Typography variant="h6">placeholder.io</Typography>
+          <div className={classes.toolbarButtons}>
+            <IconButton edge="start">
+              <MenuBook color="secondary" />
+            </IconButton>
+            <IconButton>
+              {/* Add a interaction to select theme here */}
+              <Brush color="secondary" />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

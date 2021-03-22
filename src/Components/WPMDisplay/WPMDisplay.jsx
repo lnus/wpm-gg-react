@@ -6,6 +6,9 @@ import { GameStateContext } from '../GameState/GameStateContext';
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: 30,
+    backgroundColor: theme.palette.primary.main,
+  },
+  obj: {
     color: theme.palette.text.primary,
   },
 }));
@@ -59,15 +62,27 @@ const WPMDisplay = () => {
   return (
     <Grid container justify="center" alignItems="center" direction="column">
       <Paper className={classes.paper}>
-        <Grid container item direction="row" justify="flex-start">
-          <Keyboard color="primary" />
-          <Typography color="primary" variant="body1">
+        <Grid
+          container
+          item
+          direction="row"
+          justify="flex-start"
+          className={classes.obj}
+        >
+          <Keyboard color="inherit" />
+          <Typography color="inherit" variant="body1">
             WPM {currentWPM ? currentWPM.toFixed(2) : '0.00'}
           </Typography>
         </Grid>
-        <Grid container item direction="row" justify="flex-start">
-          <Score color="primary" />
-          <Typography color="primary" variant="body1">
+        <Grid
+          container
+          item
+          direction="row"
+          justify="flex-start"
+          className={classes.obj}
+        >
+          <Score color="inherit" />
+          <Typography variant="body1" color="inherit">
             Accuracy {(currentAccuracy * 100).toFixed(2)}%
           </Typography>
         </Grid>

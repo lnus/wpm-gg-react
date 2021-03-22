@@ -1,8 +1,22 @@
 import React, { useRef, useContext, useEffect } from 'react';
 import { GameStateContext } from '../GameState/GameStateContext';
-import { Button, Grid, IconButton, Typography } from '@material-ui/core';
+import {
+  Paper,
+  Grid,
+  IconButton,
+  Typography,
+  makeStyles,
+} from '@material-ui/core';
 import { Add, Remove } from '@material-ui/icons';
 // import './Timer.css';
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    backgroundColor: theme.palette.primary.main,
+    padding: 20,
+    marginBottom: 20,
+  },
+}));
 
 const formatSeconds = (time) => {
   // stole this from the online lol
@@ -20,6 +34,7 @@ const formatSeconds = (time) => {
 };
 
 const Timer = () => {
+  const classes = useStyles();
   const {
     timeElapsed,
     setTimeElapsed,
@@ -74,25 +89,29 @@ const Timer = () => {
   return (
     // TODO: Write a displayAsMinutes function
     <Grid container justify="center" alignItems="center">
-      <IconButton
-        onClick={() => {
-          // Removes 15 seconds from the maxTimer
-          if (maxTimer >= 16) setMaxTimer(maxTimer - 15);
-        }}
-      >
-        <Remove />
-      </IconButton>
-      <Typography variant="h2" color="primary">
-        {formatSeconds(maxTimer - timeElapsed)}
-      </Typography>
-      <IconButton
-        onClick={() => {
-          // Adds 15 seconds to the maxTimer
-          setMaxTimer(maxTimer + 15);
-        }}
-      >
-        <Add />
-      </IconButton>
+      <Grid container justify="center" alignItems="center">
+        <IconButton
+          color="secondary"
+          onClick={() => {
+            // Removes 15 seconds from the maxTimer
+            if (maxTimer >= 16) setMaxTimer(maxTimer - 15);
+          }}
+        >
+          <Remove />
+        </IconButton>
+        <Typography color="inherit" variant="h2">
+          {formatSeconds(maxTimer - timeElapsed)}
+        </Typography>
+        <IconButton
+          color="secondary"
+          onClick={() => {
+            // Adds 15 seconds to the maxTimer
+            setMaxTimer(maxTimer + 15);
+          }}
+        >
+          <Add />
+        </IconButton>
+      </Grid>
     </Grid>
   );
 };

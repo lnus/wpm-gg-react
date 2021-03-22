@@ -1,11 +1,5 @@
 import randomWords from 'random-words';
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { GameStateContext } from '../GameState/GameStateContext';
 import { Grid, makeStyles, Paper, TextField } from '@material-ui/core';
 import Word from '../Word/Word';
@@ -22,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: 20,
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    backgroundColor: theme.palette.primary.main,
   },
   wordContainer: {
     fontSize: 20,
@@ -31,11 +25,14 @@ const useStyles = makeStyles((theme) => ({
     fontsize: 20,
     padding: 32,
   },
+  word: {
+    color: theme.palette.text.primary,
+  },
   correct: {
-    color: 'green',
+    color: theme.palette.text.correct,
   },
   incorrect: {
-    color: 'red',
+    color: theme.palette.text.incorrect,
   },
 }));
 
@@ -131,9 +128,10 @@ const TypeTest = () => {
                 <Word classes={classes.incorrect}>{wordData.word}</Word>
               );
             })}
-            <Word>{currentTarget}</Word>
+            <Word classes={classes.word}>{currentTarget}</Word>
             {targetWords.map((word) => {
-              if (word !== currentTarget) return <Word>{word}</Word>;
+              if (word !== currentTarget)
+                return <Word classes={classes.word}>{word}</Word>;
             })}
           </Grid>
         </Paper>
