@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/lnus.github.io/wpm-gg/static/css/main.b032e3e2.chunk.css",
-    "main.js": "/lnus.github.io/wpm-gg/static/js/main.1f5483c8.chunk.js",
-    "main.js.map": "/lnus.github.io/wpm-gg/static/js/main.1f5483c8.chunk.js.map",
-    "runtime-main.js": "/lnus.github.io/wpm-gg/static/js/runtime-main.3d926a02.js",
-    "runtime-main.js.map": "/lnus.github.io/wpm-gg/static/js/runtime-main.3d926a02.js.map",
-    "static/js/2.42dca77e.chunk.js": "/lnus.github.io/wpm-gg/static/js/2.42dca77e.chunk.js",
-    "static/js/2.42dca77e.chunk.js.map": "/lnus.github.io/wpm-gg/static/js/2.42dca77e.chunk.js.map",
-    "static/js/3.4ec2f907.chunk.js": "/lnus.github.io/wpm-gg/static/js/3.4ec2f907.chunk.js",
-    "static/js/3.4ec2f907.chunk.js.map": "/lnus.github.io/wpm-gg/static/js/3.4ec2f907.chunk.js.map",
-    "index.html": "/lnus.github.io/wpm-gg/index.html",
-    "static/css/main.b032e3e2.chunk.css.map": "/lnus.github.io/wpm-gg/static/css/main.b032e3e2.chunk.css.map",
-    "static/js/2.42dca77e.chunk.js.LICENSE.txt": "/lnus.github.io/wpm-gg/static/js/2.42dca77e.chunk.js.LICENSE.txt"
+    "main.css": "/wpm-gg/static/css/main.b032e3e2.chunk.css",
+    "main.js": "/wpm-gg/static/js/main.1f5483c8.chunk.js",
+    "main.js.map": "/wpm-gg/static/js/main.1f5483c8.chunk.js.map",
+    "runtime-main.js": "/wpm-gg/static/js/runtime-main.3e188469.js",
+    "runtime-main.js.map": "/wpm-gg/static/js/runtime-main.3e188469.js.map",
+    "static/js/2.42dca77e.chunk.js": "/wpm-gg/static/js/2.42dca77e.chunk.js",
+    "static/js/2.42dca77e.chunk.js.map": "/wpm-gg/static/js/2.42dca77e.chunk.js.map",
+    "static/js/3.4ec2f907.chunk.js": "/wpm-gg/static/js/3.4ec2f907.chunk.js",
+    "static/js/3.4ec2f907.chunk.js.map": "/wpm-gg/static/js/3.4ec2f907.chunk.js.map",
+    "index.html": "/wpm-gg/index.html",
+    "static/css/main.b032e3e2.chunk.css.map": "/wpm-gg/static/css/main.b032e3e2.chunk.css.map",
+    "static/js/2.42dca77e.chunk.js.LICENSE.txt": "/wpm-gg/static/js/2.42dca77e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3d926a02.js",
+    "static/js/runtime-main.3e188469.js",
     "static/js/2.42dca77e.chunk.js",
     "static/css/main.b032e3e2.chunk.css",
     "static/js/main.1f5483c8.chunk.js"
