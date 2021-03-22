@@ -6,7 +6,7 @@ export const GameStateContext = createContext();
 export const GameStateProvider = (props) => {
   // Word states
   const [targetWords, setTargetWords] = useState(
-    randomWords({ exactly: 10, maxLength: 7 })
+    randomWords({ exactly: 25, maxLength: 7 })
   );
   const [completedWords, setCompletedWords] = useState([]);
   const [currentTarget, setCurrentTarget] = useState(targetWords[0]);

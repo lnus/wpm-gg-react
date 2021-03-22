@@ -1,18 +1,46 @@
+import randomWords from 'random-words';
 import React, {
-  useState,
-  useRef,
   useCallback,
   useContext,
   useEffect,
+  useRef,
+  useState,
 } from 'react';
-import randomWords from 'random-words';
 import { GameStateContext } from '../GameState/GameStateContext';
-import './TypeTest.css';
+import { Grid, makeStyles, Paper, TextField } from '@material-ui/core';
+import Word from '../Word/Word';
 
 // TODO: General, make it count chars rather than words. Or both. :)
 
+// TODO: Use themeprovider for colors
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: '5px',
+    alignItems: 'center',
+    justify: 'center',
+  },
+  paper: {
+    padding: 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+  wordContainer: {
+    fontSize: 20,
+  },
+  input: {
+    fontsize: 20,
+    padding: 32,
+  },
+  correct: {
+    color: 'green',
+  },
+  incorrect: {
+    color: 'red',
+  },
+}));
+
 const TypeTest = () => {
-  const [textWidth, setTextWidth] = useState(0);
+  const classes = useStyles();
 
   const {
     targetWords,
@@ -23,25 +51,18 @@ const TypeTest = () => {
     setCurrentTarget,
     currentUserInput,
     setCurrentUserInput,
-    currentWordCorrect,
     setCurrentWordCorrect,
     timerSignalStart,
     setTimerSignalStart,
     resetGame,
   } = useContext(GameStateContext);
 
+  const inputRef = useRef();
+
   useEffect(() => {
     inputRef.current.value = '';
     setCurrentUserInput('');
   }, [resetGame, setCurrentUserInput]);
-
-  const inputRef = useRef();
-
-  const completedWordRef = useCallback((node) => {
-    if (node !== null) {
-      setTextWidth(node.getBoundingClientRect().width);
-    }
-  });
 
   const isCurrentWordCorrect = (word) => {
     if (currentTarget.startsWith(word) || word === '' || word === ' ') {
@@ -66,15 +87,11 @@ const TypeTest = () => {
       const newCompletedWords = completedWords.concat([completedWordEntry]);
       setCompletedWords(newCompletedWords);
 
-      // Updates the margin using the calculated width of the completedWords
-      // const newTextWidth = completedWordRef.getBoundingClientRect().width;
-      // setTextWidth(newTextWidth);
-
       // Updates the currentTarget state
       const newTargetWord = targetWords[1];
       setCurrentTarget(newTargetWord);
 
-      // Updates the targetWords state, appending a new target word
+      // Updates the targetWords state appending a new target word
       setTargetWords([
         ...targetWords.slice(1),
         randomWords({ exactly: 1, maxLength: 7 })[0],
@@ -91,75 +108,74 @@ const TypeTest = () => {
   };
 
   return (
-    <div className="type-test-wrapper">
-      <div
-        className={'word-container-wrapper'}
-        style={{ padding: `0 0 0 calc(50% - ${textWidth}px` }}
-      >
-        <div
-          className="word-container word-container__completed-words"
-          ref={completedWordRef}
-        >
-          {/* TODO: make this more dynamic so we can display more elements */}
-          {completedWords.slice(-5).map((wordData) => {
-            return (
-              <div
-                className={`word ${
-                  wordData.correct ? 'word--correct' : 'word--incorrect'
-                }`}
-              >
-                {wordData.word}
-              </div>
-            );
-          })}
-        </div>
-        <div className="word-container word-container__current-word">
-          <div
-            className={`word word__current-target${
-              !currentWordCorrect ? ' word__current-target--incorrect' : ''
-            }`}
+    <Grid
+      container
+      className={classes.root}
+      alignItems="center"
+      justify="center"
+    >
+      <Grid item xs={3} md={4} lg={6}>
+        <Paper className={classes.paper}>
+          <Grid
+            container
+            item
+            spacing={1}
+            direction="row"
+            className={classes.wordContainer}
           >
-            {currentTarget}
-          </div>
-        </div>
-        <div className="word-container word-container__incoming-words">
-          {targetWords.map((word) => {
-            if (word !== currentTarget)
-              return <div className={'word'}>{word}</div>;
-          })}
-        </div>
-      </div>
-      <div className={'input-wrapper'}>
-        <div className={'input-field-wrapper'}>
-          <input
-            ref={inputRef}
-            style={{ padding: '0 0 0 50%' }}
-            className="input-field"
-            contentEditable
-            autoFocus
+            {/* TODO: make this more dynamic so we can display more elements */}
+            {completedWords.slice(-20).map((wordData) => {
+              return wordData.correct ? (
+                <Word classes={classes.correct}>{wordData.word}</Word>
+              ) : (
+                <Word classes={classes.incorrect}>{wordData.word}</Word>
+              );
+            })}
+            <Word>{currentTarget}</Word>
+            {targetWords.map((word) => {
+              if (word !== currentTarget) return <Word>{word}</Word>;
+            })}
+          </Grid>
+        </Paper>
+      </Grid>
+      <Grid
+        container
+        spacing={1}
+        justify="center"
+        alignItems="center"
+        direction="row"
+        zeroMinWidth
+      >
+        <Grid item>
+          <TextField
+            variant="outlined"
+            color="primary"
+            inputRef={inputRef}
+            className={classes.input}
             spellCheck="false"
-            placeholder="type here"
             autoComplete="off"
             autoCapitalize="off"
+            placeholder="type here"
             tabIndex="0"
+            autoFocus
             onFocus={(e) => {
-              e.currentTarget.placeholder = '';
+              e.target.placeholder = '';
             }}
             onBlur={(e) => {
-              e.currentTarget.placeholder = 'type here';
+              e.target.placeholder = 'type here';
             }}
             onInput={(e) => {
-              setCurrentUserInput(e.currentTarget.value);
-              isCurrentWordCorrect(e.currentTarget.value);
+              setCurrentUserInput(e.target.value);
+              isCurrentWordCorrect(e.target.value);
             }}
             onKeyPress={(e) => {
               if (!timerSignalStart) setTimerSignalStart(true);
               handleSubmit(e);
             }}
           />
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

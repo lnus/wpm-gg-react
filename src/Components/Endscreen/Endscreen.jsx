@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GameStateContext } from '../GameState/GameStateContext';
-import './Endscreen.css';
+// import './Endscreen.css';
 
 const Endscreen = () => {
   const {

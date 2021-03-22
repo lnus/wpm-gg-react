@@ -1,27 +1,19 @@
-import './App.css';
+// import './App.css';
 
 import React from 'react';
+import Endscreen from './Components/Endscreen/Endscreen';
+import { GameStateProvider } from './Components/GameState/GameStateContext';
+import Timer from './Components/Timer/Timer';
 import TypeTest from './Components/TypeTest/TypeTest';
 import WPMDisplay from './Components/WPMDisplay/WPMDisplay';
-import Timer from './Components/Timer/Timer';
-import { GameStateProvider } from './Components/GameState/GameStateContext';
-import Endscreen from './Components/Endscreen/Endscreen';
 
 const App = () => {
   return (
     <GameStateProvider>
-      <div className="timer-wrapper">
-        <Timer />
-      </div>
-      <div className="typing-game-wrapper">
-        <TypeTest />
-      </div>
-      <div className="info-wrapper">
-        <WPMDisplay />
-      </div>
-      <div className="end-screen-wrapper">
-        <Endscreen />
-      </div>
+      <Timer />
+      <TypeTest />
+      <WPMDisplay />
+      <Endscreen />
     </GameStateProvider>
   );
 };

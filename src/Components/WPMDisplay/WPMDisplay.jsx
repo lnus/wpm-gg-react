@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import './WPMDisplay.css';
+// import './WPMDisplay.css';
 import { GameStateContext } from '../GameState/GameStateContext';
 
 const WPMDisplay = () => {
