@@ -1,8 +1,18 @@
+import { Grid, Typography, Paper, makeStyles } from '@material-ui/core';
+import { Keyboard, Score } from '@material-ui/icons';
 import React, { useContext, useEffect } from 'react';
-// import './WPMDisplay.css';
 import { GameStateContext } from '../GameState/GameStateContext';
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    padding: 30,
+    color: theme.palette.text.primary,
+  },
+}));
+
 const WPMDisplay = () => {
+  const classes = useStyles();
+
   const {
     completedWords,
     timeElapsed,
@@ -47,17 +57,22 @@ const WPMDisplay = () => {
   }, [timeElapsed]);
 
   return (
-    <div className="wpm-status-wrapper">
-      <div className="wpm-status-display">
-        <div className="wpm-status-display__header">Live stats:</div>
-        <div className="wpm-status-display__wpm">
-          WPM: {currentWPM ? currentWPM.toFixed(2) : 0}
-        </div>
-        <div className="wpm-status-display__accuracy">
-          Accuracy {(currentAccuracy * 100).toFixed(2)}%
-        </div>
-      </div>
-    </div>
+    <Grid container justify="center" alignItems="center" direction="column">
+      <Paper className={classes.paper}>
+        <Grid container item direction="row" justify="flex-start">
+          <Keyboard color="primary" />
+          <Typography color="primary" variant="body1">
+            WPM {currentWPM ? currentWPM.toFixed(2) : '0.00'}
+          </Typography>
+        </Grid>
+        <Grid container item direction="row" justify="flex-start">
+          <Score color="primary" />
+          <Typography color="primary" variant="body1">
+            Accuracy {(currentAccuracy * 100).toFixed(2)}%
+          </Typography>
+        </Grid>
+      </Paper>
+    </Grid>
   );
 };
 
